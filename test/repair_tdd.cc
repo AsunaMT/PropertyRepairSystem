@@ -407,6 +407,7 @@ TEST(SystemRepuirement5, REQUIREMENT_TEST5) {
   std::time_t end_time = 1000;
   workerCtrl.AllFinishMaintenance(record, "xx_process_xx", end_time);
   EXPECT_EQ(record.GetLaborTime(), 1000);
+  // 测试为求简单直观，直接使用整数构造time_t,实际时间则可使用tm结构然后调用mktime()转化为time_t
 }
 
 // 需求6--统计维修工人在一个时间段内的工作时间
@@ -456,4 +457,5 @@ TEST(SystemRepuirement6, REQUIREMENT_TEST6) {
   std::time_t respected_time =
       (1000 - 0) + (3000 - 2000) + (4500 - 4000);  // =2500
   EXPECT_EQ(workerCtrl.CalculateLaborTime(0, 9000), respected_time);
+  // 测试为求简单直观，直接使用整数构造time_t,实际时间则可使用tm结构然后调用mktime()转化为time_t
 }
